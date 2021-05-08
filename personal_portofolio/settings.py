@@ -133,3 +133,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/mediaaa/'
 # lokasi media di folder
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# biar tak cape rubah settings antara dev dan prod
+try:
+    from .local_settings import *
+except ImportError:
+    print('tidak ada lokal file, saat ini sedang di production')
